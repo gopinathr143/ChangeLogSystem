@@ -1,0 +1,24 @@
+.example-container {
+    height: 500px;
+    width:80%;    
+    margin: 15px;
+    overflow: auto;
+  }
+  
+  table {
+    width: 100%;
+  }
+
+ 
+  td.green {
+    background: rgba(76, 175, 80, 0.3);
+  }
+
+  td.red {
+    background: rgba(255, 0, 0, 0.3);
+  }
+
+  td.blue {
+    background: rgba(0, 0, 139, 0.3);
+  }
+  

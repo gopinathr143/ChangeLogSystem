@@ -3,3 +3,5 @@
 ################################################################################
 
 /ChamgeLogSystem/.vs/ChamgeLogSystem
+/ChamgeLogSystem/obj
+/ChamgeLogSystem/bin/Debug/netcoreapp3.1

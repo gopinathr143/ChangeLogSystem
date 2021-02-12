@@ -1,0 +1,46 @@
+
+<div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <div class="example-container mat-elevation-z8">
+        <mat-form-field style="width: 100%;">
+            <mat-label>Filter</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Seacrh Title or Type or Content.." #input>
+          </mat-form-field>
+    <table mat-table [dataSource]="dataSource">
+      
+        <!-- Position Column -->
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef> Title </th>
+          <td mat-cell *matCellDef="let element" class="{{element.color}}"> {{element.title}} </td>
+        </ng-container>
+    
+        <!-- Name Column -->
+        <ng-container matColumnDef="typeDisplay">
+          <th mat-header-cell *matHeaderCellDef> Type </th>
+          <td mat-cell *matCellDef="let element" class="{{element.color}}"> {{element.typeDisplay}} </td>
+        </ng-container>
+    
+        <!-- Weight Column -->
+        <ng-container matColumnDef="content">
+          <th mat-header-cell *matHeaderCellDef> Content </th>
+          <td mat-cell *matCellDef="let element" class="{{element.color}}"> {{element.content}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="delete">
+            <th mat-header-cell *matHeaderCellDef> Delete </th>
+            <td mat-cell *matCellDef="let element" class="{{element.color}}">
+              <button mat-icon-button color="warn" (click)="delete(element.logId)">
+                  <mat-icon class="mat-18">delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+          </tr>
+
+      </table>
+    </div>
+</div>

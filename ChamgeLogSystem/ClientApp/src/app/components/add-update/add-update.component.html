@@ -1,0 +1,38 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-title">Add Updates</h4>
+    <button type="button" class="close" aria-label="Close button" aria-describedby="modal-title" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form class="example-form" [formGroup]="updateForm">
+        <mat-form-field appearance="fill" class="example-full-width" style="width: 100%;">
+            <mat-label>Title</mat-label>
+            <input matNativeControl matInput placeholder="Title" formControlName="title">
+        </mat-form-field>
+        <br/>
+        <mat-error *ngIf="updateForm.controls['title'].errors?.required">Please provide a Title</mat-error> 
+        <mat-form-field appearance="fill" class="example-full-width" style="width: 100%;">   
+            <mat-label>Select Type</mat-label>
+            <mat-select  matNativeControl formControlName="type">
+            <mat-option value="1">New Release</mat-option>
+            <mat-option value="2">Update</mat-option>
+            <mat-option value="3">Fix</mat-option>
+            </mat-select>
+        </mat-form-field>        
+        <br/>
+        <mat-error *ngIf="updateForm.controls['type'].errors?.required">Please select type</mat-error> 
+        <mat-form-field appearance="fill" class="example-full-width" style="width: 100%;">
+            <mat-label>Content</mat-label>
+            <textarea matNativeControl matInput placeholder="Content" formControlName="content"></textarea>
+        </mat-form-field>
+        <mat-error *ngIf="updateForm.controls['content'].errors?.required">Please select content</mat-error> 
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">Cancel</button>
+    <button type="button" ngbAutofocus class="btn btn-danger" (click)="save()">Ok</button>
+  </div>
+
+  <ngb-alert #Alert *ngIf="closeAlert" [type]="alertType">{{ alertMessage }}
+</ngb-alert>

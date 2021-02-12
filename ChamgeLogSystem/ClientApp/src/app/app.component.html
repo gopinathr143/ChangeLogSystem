@@ -1,0 +1,13 @@
+<mat-toolbar color="primary" class="app-header">
+  <div><a href="#" target="_blank" class="positronx">Change Log System</a></div>
+  <span class="nav-tool-items" *ngIf = "!isAuthenticated">
+    <a  mat-button routerLink="signin" routerLinkActive="active">Signin</a>
+    <a  mat-button mat-raised-button routerLink="register" routerLinkActive="active">Signup</a>
+  </span>
+  <span class="nav-tool-items" *ngIf = "isAuthenticated">     
+    <button type="button" mat-button (click)="open()">Add updates</button>   
+    <button  type="button" mat-button (click)="logOut()">LogOut</button>
+  </span>
+</mat-toolbar>
+
+<router-outlet></router-outlet>

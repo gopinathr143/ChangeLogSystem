@@ -1,0 +1,35 @@
+<div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center">
+
+    <mat-card class="box">
+      <mat-card-header>
+        <mat-card-title>Sign In</mat-card-title>
+      </mat-card-header>
+  
+      <form class="example-form" [formGroup]="loginForm" (ngSubmit)="login()">
+        <mat-card-content>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Username" formControlName="userName">
+          </mat-form-field>
+          <mat-error *ngIf="(loginForm.controls['userName'].touched || loginForm.controls['userName'].dirty) && loginForm.controls['userName'].errors?.required">Please provide a userName</mat-error> 
+          <mat-form-field class="example-full-width">
+            <input matInput type="password" placeholder="Password" formControlName="password">
+          </mat-form-field>
+          <mat-error *ngIf="(loginForm.controls['password'].touched || loginForm.controls['password'].dirty) && loginForm.controls['password'].errors?.required">Please provide a password</mat-error> 
+        </mat-card-content>
+        <button type="submit" mat-stroked-button color="accent" class="btn-block">Sign-in</button>
+      </form>
+      <hr>
+     
+      <a href="javascript:void(0)" class="fb btn" (click)="signInWithFB('fb')">
+        <i class="fa fa-facebook fa-fw"></i> Login with Facebook
+       </a>
+      <div style="margin-top:20px"></div>
+      <a href="javascript:void(0)" class="google btn" (click)="signInWithFB('google')">
+        <i class="fa fa-google fa-fw">
+        </i> Login with Google+
+      </a>
+
+    </mat-card>
+
+  
+  </div>

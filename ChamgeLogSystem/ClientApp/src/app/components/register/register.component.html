@@ -1,0 +1,54 @@
+<div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center" >
+    <mat-card class="box">
+      <mat-card-header>
+        <mat-card-title>Register</mat-card-title>
+      </mat-card-header>
+  
+      <form class="example-form" [formGroup]="registerForm" (ngSubmit)="onRegister()"> 
+  
+        <mat-card-content>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="User Name" formControlName="userName">
+          </mat-form-field>
+          <mat-error *ngIf="regForm.userName.errors?.required && (regForm.userName.dirty || regForm.userName.touched)">Please provide a userName</mat-error> 
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Email" formControlName="email">
+          </mat-form-field>
+          <mat-error *ngIf="regForm.email.errors?.required && (regForm.email.dirty || regForm.email.touched)">Please provide a email</mat-error> 
+          <mat-error *ngIf="regForm.email.errors?.email && (regForm.email.dirty || regForm.email.touched)">Invalid email</mat-error> 
+
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="First Name" formControlName="firstName">
+          </mat-form-field>
+          <mat-error *ngIf="regForm.firstName.errors?.required && (regForm.firstName.dirty || regForm.firstName.touched)">Please provide a first name</mat-error> 
+
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Last Name" formControlName="lastName">
+          </mat-form-field>
+          <mat-error *ngIf="regForm.lastName.errors?.required && (regForm.lastName.dirty || regForm.lastName.touched)">Please provide a last name</mat-error> 
+  
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Password" formControlName="password">
+          </mat-form-field>
+          <mat-error *ngIf="regForm.password.errors?.required && (regForm.password.dirty || regForm.password.touched)">Please provide a password</mat-error> 
+
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Confirm Password" formControlName="confirmPassword">
+          </mat-form-field>  
+          <mat-error *ngIf="regForm.confirmPassword.errors?.required && (regForm.confirmPassword.dirty || regForm.confirmPassword.touched)">Please provide a confirm password</mat-error> 
+          <mat-error *ngIf="regForm.confirmPassword.errors?.mustMatch && (regForm.confirmPassword.dirty || regForm.confirmPassword.touched)">Password and confirm password does not matched</mat-error> 
+
+        </mat-card-content>
+  
+        <button mat-stroked-button color="accent" class="btn-block">Register</button>
+        <mat-error *ngIf="registerServerError">{{registerServerError}}</mat-error>
+  
+      </form>
+
+      <ngb-alert #Alert *ngIf="closeAlert" [type]="alertType">{{ alertMessage }}
+      </ngb-alert>
+    </mat-card>
+
+
+
+  </div>
