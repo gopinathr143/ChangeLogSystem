@@ -7,9 +7,12 @@ Project structure
 ********************
 
 changeLogsystem
-    |________ChangeLogSystem(API Project)
-    |                      |____________________________Client App(Angular Project)
-    |__________LogView (MVC Prjoect)    
+
+    1. ChangeLogSystem(API Project)
+    
+        1.a. Client App(Angular Project)
+        
+    2. LogView (MVC Prjoect)    
 
 To Run Web API
 **************
