@@ -1,13 +1,11 @@
-﻿using ChamgeLogSystem.Helpers;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace ChamgeLogSystem.Entity
+namespace LogView.Entity
 {
     public class ChangeLog
     {
@@ -20,8 +18,12 @@ namespace ChamgeLogSystem.Entity
         public int CreatedByUserId { get; set; }
 
         public DateTime CreatedDate { get; set; }
+    }
 
-        [JsonIgnore]
-        public User CreatedBy { get; set; }
+    public enum LogType
+    {
+        NewRelease = 1,
+        Update = 2,
+        Fix = 3
     }
 }

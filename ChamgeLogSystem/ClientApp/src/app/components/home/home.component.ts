@@ -69,7 +69,12 @@ export class HomeComponent implements OnInit {
   }
 
   delete(id: string)  {
-    console.log(id);
+    var parent = this;
+    this.logService.delete(id).subscribe({
+      next(data){
+          parent.getChangeLog();
+      }
+    });
   }
 
 }

@@ -1,0 +1,70 @@
+﻿@model IEnumerable<LogView.Models.ChangeLogModel>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    td.green {
+        background: rgba(76, 175, 80, 0.3);
+    }
+
+    td.red {
+        background: rgba(255, 0, 0, 0.3);
+    }
+
+    td.blue {
+        background: rgba(0, 0, 139, 0.3);
+    }
+
+    th {
+        background: antiquewhite;
+    }
+  
+</style>
+
+<div class="text-center">
+    @using (Html.BeginForm())
+    {
+        <p>
+            Find by name: @Html.TextBox("SearchString")
+            <input type="submit" value="Search" />
+        </p>
+    }
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreatedDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Type)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Content)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="@item.Color">
+                        @Html.DisplayFor(modelItem => item.CreatedDate)
+                    </td>
+                    <td class="@item.Color">
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td class="@item.Color">
+                        @Html.DisplayFor(modelItem => item.Type)
+                    </td>
+                    <td class="@item.Color">
+                        @Html.DisplayFor(modelItem => item.Content)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

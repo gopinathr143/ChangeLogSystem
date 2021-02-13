@@ -21,6 +21,7 @@ namespace ChamgeLogSystem.Model
             log.Type = this.Type;
             log.Title = this.Title;
             log.CreatedByUserId = this.CreatedByUserId;
+            log.CreatedDate = DateTime.Now;
             return log;
         }
     }
@@ -42,6 +43,7 @@ namespace ChamgeLogSystem.Model
             log.Type = this.Type;
             log.Title = this.Title;
             log.CreatedByUserId = this.CreatedByUserId;
+            log.CreatedDate = DateTime.Now;
             return log;
         }
     }
