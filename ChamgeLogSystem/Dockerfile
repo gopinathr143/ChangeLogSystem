@@ -7,9 +7,9 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
 WORKDIR /src
-COPY ["ChamgeLogSystem.csproj", "."]
-RUN dotnet restore "./ChamgeLogSystem.csproj"
-WORKDIR "/src/."
+COPY ["ChamgeLogSystem.csproj", "ChamgeLogSystem/"]
+RUN dotnet restore "ChamgeLogSystem/ChamgeLogSystem.csproj"
+WORKDIR "/src/ChamgeLogSystem"
 COPY . .
 
 RUN dotnet build "ChamgeLogSystem.csproj" -c Release -o /app/build
